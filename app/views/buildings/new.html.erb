@@ -1,0 +1,24 @@
+<h1> Create a new Building </h1>
+<%= simple_form_for @building do |f| %>
+  <% if @building.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@building.errors.count, "error") %> prohibited this car from being saved:</h2>
+      <ul>
+      <% @building.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<%= simple_form_for @building, error_class: :field_with_errors do |f| %>
+  <%= f.input :street_address %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :postal_code %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>
+
+
