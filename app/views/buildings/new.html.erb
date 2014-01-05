@@ -18,6 +18,8 @@
   <%= f.input :state %>
   <%= f.input :postal_code %>
   <%= f.input :description %>
+  <%= f.association :owner,:collection => Owner.all,:label_method => :email,:value_method => :id %>
+
   <%= f.submit %>
 <% end %>
 

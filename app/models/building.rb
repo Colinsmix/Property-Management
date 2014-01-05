@@ -2,6 +2,8 @@ class Building < ActiveRecord::Base
   VALID_STATE = /^[a-zA-Z]+$/
   VALID_CODE = /^[\d]+$/
 
+  belongs_to :owner
+
   validates_presence_of :street_address
   validates_presence_of :city
   validates_presence_of :state

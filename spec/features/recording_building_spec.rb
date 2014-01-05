@@ -11,8 +11,11 @@ So that I can refer back to pertinent information) do
 # If I enter all of the required information in the required format, the building is recorded.
 # If I do not specify all of the required information in the required formats, the building is not recorded and I am presented with errors
 # Upon successfully creating a building, I am redirected so that I can record another building.
+   let!(:owner){ FactoryGirl.build(:owner) }
+
 
   scenario 'Associate enters building information correctly' do
+    owner.save!
     visit root_path
     click_link 'Add Building'
     fill_in 'Street address', :with => 'Example Address'
@@ -20,6 +23,8 @@ So that I can refer back to pertinent information) do
     fill_in 'State', :with => 'St'
     fill_in 'Postal code', :with => 12345
     fill_in 'Description', :with => 'Example Description'
+    select(owner.email, :from => 'Owner')
+
     click_button 'Create Building'
 
     expect(page).to have_content('Building Successfully Created')

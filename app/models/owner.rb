@@ -2,6 +2,8 @@ class Owner < ActiveRecord::Base
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_NAME = /^[a-zA-Z]+$/
 
+  has_many :buildings
+
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_presence_of :email
