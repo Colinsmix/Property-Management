@@ -1,5 +1,4 @@
 class Building < ActiveRecord::Base
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_STATE = /^[a-zA-Z]+$/
   VALID_CODE = /^[\d]+$/
 
